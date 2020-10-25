@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+
+spec:
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      containers:
+      - name: app
+        image: camargodouglas/node-app-k8s:latest
+        ports:
+        - containerPort: 5000
+
+        resources: # Recursos do cluster para esse pod
+          limits: # Recursos máximos que o pod poderá utilizar
+            memory: 100Mi
+            cpu: 100m
+          requests: # Recursos do cluster que será reservado para esse pod
+            memory: 100Mi
+            cpu: 100m
+
+        envFrom:
+        - configMapRef:
+            name: app-conf
+
+        # Copiando conteudo do configmap para dentro do container
+        volumeMounts:
+        - name: app-conf # Nome do configmap
+          mountPath: /usr/src/app/.env # Path destino que será copiado o conteudo do configmap
+          subPath: .env # Nome do arquivo no path destino
+
+
+      # Montando volume do configmap
+      volumes:
+      - name: app-conf
+        configMap:
+          name: app-conf
+          items:
+            - key: env
+              path: .env

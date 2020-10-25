@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: app1-service # Nome do service
+spec:
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: app1 # Nome do deployment que será vinculado a este service
