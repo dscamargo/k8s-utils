@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: echo-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx" # Nome do ingress que será utilizado
+    cert-manager.io/cluster-issuer: "letsencrypt-prod" # Nome do issuer do certificado
+spec:
+  tls:
+  - hosts:  # Lista de domínios que será aplicado o certificado SSL
+    - k8s-app1.dscamargo.com 
+    secretName: echo-tls
+
+  # Cada host adicionado acima será um item dentro de RULES, vinculado a um service específico
+  rules:
+  - host: k8s-app1.dscamargo.com
+    http:
+      paths:
+      - backend:
+          serviceName: finance-api-service
+          servicePort: 80
