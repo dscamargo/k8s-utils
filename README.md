@@ -13,9 +13,9 @@ Arquivos úteis para configuração do cluster e deploy de aplicações no k8s.
 
 ### SSL :lock:
 
-| Arquivo | Descrição | Help Link
-| ------ | ------ | ------ |
-| ingress.yaml | Nginx ingress para certificados SSL | https://shorturl.at/kwCOR
+| Arquivo | Descrição |
+| ------ | ------ | 
+| ingress.yaml | Nginx ingress para certificados SSL
 
 #### Issuers
 
@@ -24,3 +24,6 @@ Arquivos úteis para configuração do cluster e deploy de aplicações no k8s.
 | prod_issuers.yaml | Emissor de SSL para clusters em produção |
 | staging_issuers.yaml | Emissor de SSL fake para testes |
 
+#### Helpers
+
+- Instruções para configurar SSL - https://shorturl.at/kwCOR
