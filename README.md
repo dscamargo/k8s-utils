@@ -14,7 +14,7 @@ Arquivos úteis para configuração do cluster e deploy de aplicações no k8s.
 ### SSL :lock:
 
 | Arquivo | Descrição | Help Link
-| ------ | ------ |
+| ------ | ------ | ------ |
 | ingress.yaml | Nginx ingress para certificados SSL | https://shorturl.at/kwCOR
 
 #### Issuers
