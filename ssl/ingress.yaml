@@ -8,14 +8,21 @@ metadata:
 spec:
   tls:
   - hosts:  # Lista de domínios que será aplicado o certificado SSL
-    - k8s-app1.dscamargo.com 
+    - k8s-app1.example.com
+    - k8s-app2.example.com
     secretName: echo-tls
 
   # Cada host adicionado acima será um item dentro de RULES, vinculado a um service específico
   rules:
-  - host: k8s-app1.dscamargo.com
+  - host: k8s-app1.example.com
     http:
       paths:
       - backend:
           serviceName: finance-api-service
+          servicePort: 80
+  - host: k8s-app2.example.com
+    http:
+      paths:
+      - backend:
+          serviceName: finance-web-service
           servicePort: 80
