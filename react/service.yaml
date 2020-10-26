@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: react-app-service # Nome do service
+spec:
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: react-app # Nome do deployment que será vinculado a este service
