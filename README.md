@@ -17,4 +17,4 @@ Arquivos úteis para configuração do cluster e deploy de aplicações no k8s.
 
 #### Helpers
 
-- Instruções para configurar SSL no cluster k8s- https://shorturl.at/kwCOR
+- Instruções para configurar SSL no cluster k8s- [Digital Ocean Tutorials](https://www.digitalocean.com/community/tutorials/how-to-set-up-an-nginx-ingress-with-cert-manager-on-digitalocean-kubernetes-pt)
